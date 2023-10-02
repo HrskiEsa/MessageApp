@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMailMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MailMessage>
+    <Receiver>admin</Receiver>
+    <Message>Adminille tuotu viesti 1</Message>
+    <Encrypted>0</Encrypted>
+  </MailMessage>
+  <MailMessage>
+    <Receiver>admin</Receiver>
+    <Message>Adminille tuotu viesti 2</Message>
+    <Encrypted>0</Encrypted>
+  </MailMessage>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+          <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+        <DigestValue>n3443zxa2sNS58yxeGT+dhyJLVDEENtaMzEX+qgteug=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>vFrfIv4j5LnMuoOutAqf+4ZTxYCYV2+gGCYfHXalSZF2Lev9nezU5a2bnR29Q4LBaEFnh7exFJuV1fhUG5LfL1laqw5pRqKgdcGg93SWQSWASmPLEpebQOvhBT3Ju1iaUQBcShmG8TXx/tZ4ysnIGYQ3KnGxkvtQJrS942ckNeGLK8GxX8Jw23Mt13q6MPsUZklxF1lTavs/4BXlUxnUfmqSRLyvKXOD967wsn0lyW52ZF9W/Nms2DdZ7VfLAQmMoKBN4wYZF/BwUdxBG6LkZ08dzxAw2DcYgywvLD1ALT525povdJ8uxP1aWUmOa+9tr3Nqs0uHwc7wHlzdESBImA==</SignatureValue>
+  </Signature>
+</ArrayOfMailMessage>

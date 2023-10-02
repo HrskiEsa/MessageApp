@@ -1,0 +1,80 @@
+﻿<Window x:Class="MessageApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MessageApp"
+        mc:Ignorable="d"
+        Title="Karelia mail" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="30" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="Tiedosto">
+
+                <MenuItem Header="Tuo tiedostosta..." Click="ImportMenuItemClicked" />
+                <Separator />
+                <MenuItem Header="Sulje" Click="CloseClicked" />
+            </MenuItem>
+            <MenuItem Header="Muokkaa">
+                <MenuItem Header="Käyttäjähallinta..." Click="UserManagementClicked" />
+                <MenuItem x:Name="mnuMaintenanceItem" Header="Ylläpito..." Click="MaintenanceClicked" />
+            </MenuItem>
+        </Menu>
+        <ToolBar Grid.Row="1" Grid.ColumnSpan="2">
+            <Button Click="NewEmailClicked">
+                <Image Source="/Images/mail.png" HorizontalAlignment="Right"/>
+            </Button>
+
+            <Separator />
+            <ComboBox x:Name="comFrom" 
+                      Width="150" 
+                      SelectionChanged="SelecteItemChanged" 
+                      DisplayMemberPath="Username" 
+                      SelectedValuePath="Username">
+            </ComboBox>
+
+            <Separator />
+
+            <TextBox x:Name="txtSearch" Width="150" />
+
+            <Button Click="SearchClicked">
+                <Image Source="/Images/search.png" HorizontalAlignment="Left" Width="20" Height="20" />
+            </Button>
+
+            <Separator />
+            <Button Content="SQL Pro" Click="SQLProClicked" />
+            <Separator />
+            <StackPanel x:Name="pnlDecrypt" Orientation="Horizontal" Visibility="Hidden">
+                <Label Content="Avain" />
+                <TextBox x:Name="txtKey" Width="200" />
+                <Button x:Name="btnEncrypt" Click="DecryptClicked" >
+                    <Image Source="/Images/lock.png" HorizontalAlignment="Left" Width="20" Height="20" />
+                </Button>
+            </StackPanel>
+
+
+        </ToolBar>
+
+        <DataGrid IsReadOnly="True" x:Name="dataGrid" Grid.Row="2" SelectionChanged="RowSelected" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#ID" IsReadOnly="True" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Viesti" IsReadOnly="True" Binding="{Binding Message}" Width="*" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <TextBox x:Name="txtMessage" 
+                 Grid.Column="1" 
+                 Grid.Row="2"
+                 TextWrapping="Wrap" />
+    </Grid>
+</Window>

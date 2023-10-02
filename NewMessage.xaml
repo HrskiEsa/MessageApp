@@ -1,0 +1,37 @@
+﻿<Window x:Class="MessageApp.NewMessage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MessageApp"
+        mc:Ignorable="d"
+        Title="Uusi viesti" Height="320" Width="505" MinHeight="320" MinWidth="505">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Label Content="Vastaanottaja" Grid.ColumnSpan="2" Margin="0,0,402,0" Height="28" VerticalAlignment="Top"/>
+        <Label Margin="0,49,402,0" Content="Viesti" Grid.ColumnSpan="2" Height="28" VerticalAlignment="Top"/>
+
+        <StackPanel Grid.Column="1">
+
+            <ComboBox x:Name="comUsers" DisplayMemberPath="Username" Margin="0,3,5,2" SelectedValuePath="Username" />
+            <CheckBox x:Name="chkEncrypt" Content="Salaa viesti" Margin="0,3,5,3" HorizontalAlignment="Right" Checked="chkEncrypt_Checked" Unchecked="chkEncrypt_Unchecked"/>
+            <StackPanel x:Name="keyPanel" Visibility="Collapsed" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Avain" />
+                <TextBox x:Name="txtKey" Width="200" VerticalContentAlignment="Center"/>
+            </StackPanel>
+            
+            <TextBox x:Name="txtMessage" TextWrapping="Wrap" Height="193" Margin="0,0,5,0"/>
+
+            <Button Margin="5" Content="Lähetä" Width="150"  HorizontalAlignment="Right" Click="SendMessage" />
+
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>
